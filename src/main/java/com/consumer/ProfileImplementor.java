@@ -1,6 +1,7 @@
 package com.consumer;
 
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
 
 import com.db.DBConnection;
 import com.model.ConsumerModel;
@@ -102,5 +103,47 @@ public class ProfileImplementor implements ProfileProvider {
 			e.printStackTrace();
 		}
 
+	}
+	
+	@Override
+	public ConsumerModel getConsumerProfile(ConsumerModel consumerModel) {
+		ConsumerModel consumer = new ConsumerModel();
+		// TODO Auto-generated method stub
+		try {
+			CallableStatement callableStatement = DBConnection.getConnection()
+					.prepareCall("{call get_consumer_profile(?)}");
+			callableStatement.setString(1, consumerModel.getConsumerPortId());
+			ResultSet rs= callableStatement.executeQuery();
+			
+			while (rs.next()) {
+				consumer.setConsumerPortId(rs.getString("port_id"));
+				consumer.setLocation(rs.getString("location"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return consumer;
+	}
+	
+	@Override
+	public SellerModel getSellerProfile(SellerModel sellerModel) {
+		SellerModel seller = new SellerModel();
+		// TODO Auto-generated method stub
+		try {
+			CallableStatement callableStatement = DBConnection.getConnection()
+					.prepareCall("{call get_seller_profile(?)}");
+			callableStatement.setString(1, sellerModel.getSellerPortId());
+			ResultSet rs = callableStatement.executeQuery();
+
+			while (rs.next()) {
+				seller.setSellerPortId(rs.getString("port_id"));
+				seller.setLocation(rs.getString("location"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return seller;
 	}
 }

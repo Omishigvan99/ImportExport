@@ -73,6 +73,7 @@ body::before {
 			</div>
 			<button type="submit" id="redirectLink" class="btn btn-primary w-100">Log
 				In</button>
+			<a href="register.jsp" class="link">Not a user? register here</a>
 		</form>
 	</div>
 

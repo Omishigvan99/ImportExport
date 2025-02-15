@@ -47,39 +47,8 @@
 			<layout:consumer-sidebar />
 			<div
 				class="container-fluid flex-grow-1 mb-2 p-2 col-10 col-lg-9 overflow-auto">
-				<!-- search component for the products -->
-				<!-- <div class="container-fluid">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search..."
-							aria-label="Search" />
-						<button class="btn btn-secondary" type="button">
-							<i class="bi bi-search"></i>
-						</button>
-					</div>
-				</div> -->
 
-				<div class="container-fluid mt-3">
-					<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-						<!-- product component -->
-						<%
-						@SuppressWarnings("unchecked")
-						List<ProductModel> products = (List<ProductModel>) request.getAttribute("products");
-
-						if (products != null) {
-							for (ProductModel product : products) {
-						%>
-						<div class="">
-							<component:product p_id="<%=product.getProductId()%>"
-								p_name="<%=product.getProductName()%>"
-								p_price="<%=product.getProductPrice()%>"></component:product>
-						</div>
-						<%
-						}
-						}
-						%>
-
-					</div>
-				</div>
+				<!-- show profile -->
 			</div>
 		</div>
 	</main>

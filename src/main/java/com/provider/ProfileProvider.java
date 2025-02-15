@@ -15,4 +15,8 @@ public interface ProfileProvider {
 	void changeSellerPassword(String portId, String password,String newPassword);
 	
 	void changeConsumerPassword(String portId, String password,String newPassword);
+	
+	ConsumerModel getConsumerProfile(ConsumerModel consumerModel);
+	
+	SellerModel getSellerProfile(SellerModel sellerModel);
 }

@@ -102,6 +102,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Register</button>
+                <a href="login.jsp" class="link">Already a user? login</a>
             </div>
         </form>
 

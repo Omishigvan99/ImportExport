@@ -82,11 +82,29 @@ public class ReportedProductImplementor implements ReportedProductProvider {
 			callableStatement = DBConnection.getConnection().prepareCall("{call delete_reported_product(?)}");
 			callableStatement.setInt(1, reportedProductId);
 			callableStatement.executeQuery();
+			System.out.println("Reported Product removed successfully");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public void reportProduct(ReportedProductModel reportedProduct) {
+		try {
+			
+			CallableStatement callableStatement = null;
+			callableStatement = DBConnection.getConnection().prepareCall("{call report_product(?, ?, ?)}");
+			callableStatement.setString(1, reportedProduct.getConsumerPortId());
+			callableStatement.setInt(2, reportedProduct.getProductId());
+			callableStatement.setString(3, reportedProduct.getIssueType());
+			callableStatement.executeUpdate();
+			System.out.println("Product reported successfully");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

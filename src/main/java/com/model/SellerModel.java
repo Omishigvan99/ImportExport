@@ -53,4 +53,8 @@ public class SellerModel {
 		new ProfileImplementor().changeSellerPassword(portId, password, newPassword);
 	}
 	
+	public SellerModel getSellerProfile(SellerModel sellerModel) {
+		return new ProfileImplementor().getSellerProfile(sellerModel);
+	}
+	
 }

@@ -52,14 +52,6 @@
 						<div class="col">
 							<div class="d-flex justify-content-between align-items-center">
 								<h2 class="mb-0">Reported Products</h2>
-								<div class="d-flex gap-2">
-									<select class="form-select" style="width: 200px">
-										<option>All Issues</option>
-										<option>Quality Issues</option>
-										<option>Delivery Issues</option>
-										<option>Other Issues</option>
-									</select>
-								</div>
 							</div>
 						</div>
 					</div>

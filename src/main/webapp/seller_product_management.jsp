@@ -48,13 +48,13 @@
 				<div class="container mt-4">
 					<!-- Search and Add Product -->
 					<div class="d-flex mb-3">
-						<div class="input-group me-2" style="flex: 1">
+						<!-- <div class="input-group me-2" style="flex: 1">
 							<input type="text" class="form-control"
 								placeholder="Search products" />
 							<button class="btn btn-outline-secondary">
 								<i class="fa-solid fa-search"></i>
 							</button>
-						</div>
+						</div> -->
 
 						<!-- Button trigger modal -->
 						<button type="button" class="btn btn-primary"
@@ -97,19 +97,6 @@
 							</table>
 						</div>
 					</div>
-
-					<!-- Pagination -->
-					<nav class="mt-3">
-						<ul class="pagination justify-content-end">
-							<li class="page-item"><a class="page-link" href="#">Previous</a>
-							</li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">Next</a>
-							</li>
-						</ul>
-					</nav>
-
 
 					<!-- Add Product Modal -->
 					<modal:add_product />

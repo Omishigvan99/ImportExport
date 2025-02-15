@@ -52,4 +52,8 @@ public class ConsumerModel {
 	public void changeConsumerPassword(String portId, String password, String newPassword) {
 		new ProfileImplementor().changeConsumerPassword(portId, password, newPassword);
 	}
+	
+	public ConsumerModel getConsumerProfile(ConsumerModel consumerModel) {
+		return new ProfileImplementor().getConsumerProfile(consumerModel);
+	}
 }

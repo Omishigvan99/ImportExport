@@ -18,7 +18,7 @@
 				Products</a>
 		</div>
 		<div class="p-2 side-nav-item">
-			<a href="#" class="text-white btn">Cart</a>
+			<a href="consumer_cart.jsp" class="text-white btn">Cart</a>
 		</div>
 	</div>
 </div>

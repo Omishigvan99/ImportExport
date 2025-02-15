@@ -22,6 +22,10 @@ public class OrdersShowController extends HttpServlet {
 		OrderModel orderModel = new OrderModel();
 
 		HttpSession session = request.getSession(false);
+		
+		if (session == null) {
+			response.sendRedirect("login.jsp");
+		}
 
 		String role = (String) session.getAttribute("role");
 		String portId = (String) session.getAttribute("port_id");

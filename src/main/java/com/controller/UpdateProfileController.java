@@ -23,6 +23,10 @@ public class UpdateProfileController extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession(true);
+		
+		if (session == null) {
+			response.sendRedirect("login.jsp");
+		}
 
 		String role = (String) session.getAttribute("role");
 		String portId = (String) session.getAttribute("port_id");

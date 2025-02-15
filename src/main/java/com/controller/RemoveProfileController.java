@@ -23,6 +23,11 @@ public class RemoveProfileController extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession(false);
+		
+		if(session == null) {
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
+		
 		String role = (String) session.getAttribute("role");
 		String portid = (String) session.getAttribute("port_id");
 
@@ -39,6 +44,7 @@ public class RemoveProfileController extends HttpServlet {
 
 			seller.deleteSellerProfile(seller);
 			
+			// Invalidate the session and redirect to login page
 			session.invalidate();
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 
@@ -48,6 +54,7 @@ public class RemoveProfileController extends HttpServlet {
 			consumer.setPassword(password);
 			consumer.deleteConsumerProfile(consumer);
 			
+			// Invalidate the session and redirect to login page
 			session.invalidate();
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		} else {

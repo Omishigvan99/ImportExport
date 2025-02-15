@@ -22,6 +22,10 @@ public class PlaceOrderController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession httpSession = request.getSession();
+		
+		if (httpSession == null) {
+			response.sendRedirect("login.jsp");
+		}
 
 		String role = (String) httpSession.getAttribute("role");
 		String port_id = (String) httpSession.getAttribute("port_id");

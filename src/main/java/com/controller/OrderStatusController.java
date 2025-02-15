@@ -30,6 +30,10 @@ public class OrderStatusController extends HttpServlet {
 		
 		String role = (String) session.getAttribute("role");
 		
+		if (role == null) {
+			response.sendRedirect("login.jsp");
+		}
+		
 		String status = request.getParameter("status");
 		int orderId = Integer.parseInt(request.getParameter("order_id"));
 		

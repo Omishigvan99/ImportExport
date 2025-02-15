@@ -36,7 +36,7 @@ public class SalesReportController extends HttpServlet {
 			salesModel.setMonth(month);
 
 			double[] result = null;
-			if (reportType.equals("yearly")) {
+			if (reportType.equals("annual")) {
 				result = salesModel.getYearlySales(salesModel);
 				request.setAttribute("totalsales", result[0]);
 				request.setAttribute("totalorders", result[1]);

@@ -24,6 +24,10 @@ public class ProductsShowController extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);
 		
+		if (session == null) {
+			response.sendRedirect("login.jsp");
+		}
+		
 		String role = (String) session.getAttribute("role");
 		String portId = (String) session.getAttribute("port_id");
 		

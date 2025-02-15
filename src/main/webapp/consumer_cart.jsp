@@ -65,13 +65,7 @@
                                                     >0</span
                                                 >
                                             </h6>
-                                            <button
-                                                class="btn btn-success"
-                                                onclick="purchase()"
-                                            >
-                                                <i class="bi bi-cart-check"></i>
-                                                Purchase
-                                            </button>
+                                            
                                         </div>
                                     </div>
                                 </div>

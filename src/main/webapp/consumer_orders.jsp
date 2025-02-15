@@ -118,44 +118,18 @@
 			<div
 				class="container-fluid flex-grow-1 mb-2 p-2 col-10 col-lg-9 overflow-auto">
 				<div class="container-fluid px-4 py-3">
-					<!-- Orders Header -->
-					<div class="row mb-4">
-						<div class="col">
-							<div class="d-flex justify-content-between align-items-center">
-								<h2 class="mb-0">Your orders</h2>
-								<div class="d-flex gap-2">
-									<select class="form-select" style="width: 200px">
-										<option>All Orders</option>
-										<option>Pending</option>
-										<option>Shipped</option>
-										<option>Delivered</option>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
 
 					<!-- Orders Table Card -->
 					<div class="card shadow-sm">
 						<div class="card-body">
-							<!-- Table Controls -->
-							<div
-								class="d-flex justify-content-between align-items-center mb-3">
-								<div class="d-flex align-items-center gap-2">
-									<label>Show</label> <select class="form-select form-select-sm"
-										style="width: 80px">
-										<option>10</option>
-										<option>25</option>
-										<option>50</option>
-										<option>100</option>
-									</select> <label>entries</label>
-								</div>
-								<div class="d-flex align-items-center">
-									<input type="search" class="form-control form-control-sm"
-										placeholder="Search orders..." style="width: 200px" />
+							<!-- Orders Header -->
+							<div class="row mb-4">
+								<div class="col">
+									<div class="d-flex justify-content-between align-items-center">
+										<h2 class="mb-0">Your orders</h2>
+									</div>
 								</div>
 							</div>
-
 							<!-- Orders Table -->
 							<div class="table-responsive">
 								<table class="table table-hover">
@@ -197,7 +171,9 @@
 											cost="<%=order.getCost()%>"
 											customer_port_id="<%=order.getConsumerId()%>"
 											order_id="<%=order.getOrderId()%>"
-											price="<%=order.getPrice()%>"></components:consumer_order_row>
+											price="<%=order.getPrice()%>"
+											product_id="<%=order.getProductId()%>"
+											></components:consumer_order_row>
 										<%
 										}
 										}
@@ -205,38 +181,45 @@
 									</tbody>
 								</table>
 							</div>
-
-							<!-- Pagination Controls -->
-							<div
-								class="d-flex justify-content-between align-items-center mt-3">
-								<div>
-									Showing <span class="fw-semibold">1</span> to <span
-										class="fw-semibold">10</span> of <span class="fw-semibold">50</span>
-									entries
+						</div>
+					</div>
+					<!-- Update Status Modal -->
+					<modal:order-status />
+					<!-- Report Order Modal -->
+					<div class="modal fade" id="reportProductModal" tabindex="-1">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Report Product</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 								</div>
-								<nav aria-label="Page navigation example">
-									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">Previous</a>
-										</li>
-										<li class="page-item"><a class="page-link" href="#">1</a>
-										</li>
-										<li class="page-item"><a class="page-link" href="#">2</a>
-										</li>
-										<li class="page-item"><a class="page-link" href="#">3</a>
-										</li>
-										<li class="page-item"><a class="page-link" href="#">Next</a>
-										</li>
-									</ul>
-								</nav>
+								<div class="modal-body">
+									<form action="ReportProductController" method="get">
+										<input id="product_id" type="text" name="product_id"
+											value="">
+										<div class="mb-3">
+											<label class="form-label">Issue type</label> <select
+												class="form-select" name="issue_type">
+												<option value="damaged">Damaged</option>
+												<option value="wrong">Wrong</option>
+												<option value="delay">Delay</option>
+												<option value="not received">Not received</option>
+												<option value="missing">Missing</option>
+											</select>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">Cancel</button>
+											<button type="submit" class="btn btn-primary">Report
+												Product</button>
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
-
-					<!-- Update Status Modal -->
-					<modal:update_order_status/>
 				</div>
 			</div>
-		</div>
 	</main>
 	<footer>
 		<!-- place footer here -->
@@ -270,6 +253,12 @@
 				document.getElementById("progress-bar").style.width = progressPercentage
 						+ "%";
 
+				// Remove all active steps first
+				for (let i = 0; i < statuses.length; i++) {
+					document.getElementById("step-" + (i + 1)).classList
+							.remove("active-step");
+				}
+
 				// Activate the correct steps
 				for (let i = 0; i <= currentStatusIndex; i++) {
 					document.getElementById("step-" + (i + 1)).classList
@@ -277,6 +266,20 @@
 				}
 			}
 		}
+		
+		// get report product modal
+		let reportProductModal = document.getElementById('reportProductModal');
+		
+		// add event listener to show modal
+		
+		reportProductModal.addEventListener('show.bs.modal', function(event) {
+			let button = event.relatedTarget;
+			let productId = button.getAttribute('data-bs-productid');
+			let modal = document.getElementById('reportProductModal');
+			let productIdInput = modal
+					.querySelector('input[name="product_id"]');
+			productIdInput.value = productId;
+		});
 	</script>
 </body>
 </html>

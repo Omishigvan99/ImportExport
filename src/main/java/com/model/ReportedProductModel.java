@@ -81,4 +81,8 @@ public class ReportedProductModel {
 	public void removeReportedProduct(int reportedProductId) {
 		new ReportedProductImplementor().removeReportedProduct(reportedProductId);
 	}
+	
+	public void reportProduct(ReportedProductModel reportedProductModel) {
+		new ReportedProductImplementor().reportProduct(reportedProductModel);
+	}
 }

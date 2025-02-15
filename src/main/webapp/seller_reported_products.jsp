@@ -54,14 +54,6 @@
 								<div class="col">
 									<div class="d-flex justify-content-between align-items-center">
 										<h2 class="mb-0">Reported Products</h2>
-										<div class="d-flex gap-2">
-											<select class="form-select" style="width: 200px">
-												<option>All Issues</option>
-												<option>Quality Issues</option>
-												<option>Delivery Issues</option>
-												<option>Other Issues</option>
-											</select>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -106,28 +98,7 @@
 							</div>
 						</div>
 
-						<!-- Pagination -->
-						<div
-							class="container-fluid d-flex mt-4 justify-content-between align-items-center">
-							<div>
-								Showing <span class="fw-bold">1</span> to <span class="fw-bold">3</span>
-								of <span class="fw-bold">9</span> entries
-							</div>
-							<nav aria-label="Page navigation">
-								<ul class="pagination mb-0">
-									<li class="page-item disabled"><a class="page-link"
-										href="#">Previous</a></li>
-									<li class="page-item active"><a class="page-link" href="#">1</a>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">2</a>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">3</a>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">Next</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
+						
 					</div>
 				</div>
 			</div>

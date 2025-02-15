@@ -20,6 +20,11 @@ public class ChangePasswordController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
+		
+		if(session == null) {
+		    request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
+		
 		String role = (String) session.getAttribute("role");
 		String portid = (String) session.getAttribute("port_id");
 		

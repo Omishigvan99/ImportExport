@@ -36,6 +36,7 @@ public class LoginController extends HttpServlet {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("port_id", portid);
 				session.setAttribute("role", role);
+				session.setAttribute("location", seller.getLocation());
 
 				request.getRequestDispatcher("seller_dashboard.jsp").forward(request, response);
 			} else {
@@ -50,6 +51,8 @@ public class LoginController extends HttpServlet {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("port_id", portid);
 				session.setAttribute("role", role);
+				session.setAttribute("location", consumer.getLocation());
+				
 				request.getRequestDispatcher("ProductsShowController").forward(request, response);
 			} else {
 				request.getRequestDispatcher("login.jsp").forward(request, response);

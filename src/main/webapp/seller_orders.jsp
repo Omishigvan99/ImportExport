@@ -52,14 +52,6 @@
 						<div class="col">
 							<div class="d-flex justify-content-between align-items-center">
 								<h2 class="mb-0">Orders Management</h2>
-								<div class="d-flex gap-2">
-									<select class="form-select" style="width: 200px">
-										<option>All Orders</option>
-										<option>Pending</option>
-										<option>Shipped</option>
-										<option>Delivered</option>
-									</select>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -67,24 +59,6 @@
 					<!-- Orders Table Card -->
 					<div class="card shadow-sm">
 						<div class="card-body">
-							<!-- Table Controls -->
-							<div
-								class="d-flex justify-content-between align-items-center mb-3">
-								<div class="d-flex align-items-center gap-2">
-									<label>Show</label> <select class="form-select form-select-sm"
-										style="width: 80px">
-										<option>10</option>
-										<option>25</option>
-										<option>50</option>
-										<option>100</option>
-									</select> <label>entries</label>
-								</div>
-								<div class="d-flex align-items-center">
-									<input type="search" class="form-control form-control-sm"
-										placeholder="Search orders..." style="width: 200px" />
-								</div>
-							</div>
-
 							<!-- Orders Table -->
 							<div class="table-responsive">
 								<table class="table table-hover">
@@ -136,30 +110,6 @@
 										<tr>
 									</tbody>
 								</table>
-							</div>
-
-							<!-- Pagination Controls -->
-							<div
-								class="d-flex justify-content-between align-items-center mt-3">
-								<div>
-									Showing <span class="fw-semibold">1</span> to <span
-										class="fw-semibold">10</span> of <span class="fw-semibold">50</span>
-									entries
-								</div>
-								<nav aria-label="Page navigation example">
-									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">Previous</a>
-										</li>
-										<li class="page-item"><a class="page-link" href="#">1</a>
-										</li>
-										<li class="page-item"><a class="page-link" href="#">2</a>
-										</li>
-										<li class="page-item"><a class="page-link" href="#">3</a>
-										</li>
-										<li class="page-item"><a class="page-link" href="#">Next</a>
-										</li>
-									</ul>
-								</nav>
 							</div>
 						</div>
 					</div>

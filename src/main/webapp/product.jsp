@@ -65,9 +65,11 @@
 
 							<!-- Quantity Selector -->
 							<div class="d-flex align-items-center my-3">
-								<label class="me-2">Quantity:</label> <input type="number"
-									class="form-control w-25 text-center"
-									value="<%=product.getProductQuantity()%>" min="1" />
+								<% 
+									int quantity = product.getProductQuantity();
+									String message = quantity > 0 ? "In Stock : "+quantity : "Out of Stock";
+								%>
+								<span class="me-2"><%=message%></span>
 							</div>
 
 							<!-- Add to Cart Button -->
@@ -112,7 +114,6 @@
 			let button = event.target;
 			let productId = Number(button.getAttribute('data-bs-productid'));
 			let productName = button.getAttribute('data-bs-productname');
-			let quantity = Number(button.getAttribute('data-bs-quantity'));
 			let price = Number(button.getAttribute('data-bs-price'));
 			let sellerId = button.getAttribute('data-bs-sellerid');
 			let consumerId = button.getAttribute('data-bs-consumerid');
@@ -120,7 +121,7 @@
 			let product = {
 				productId : productId,
 				productName : productName,
-				quantity : quantity,
+				quantity : 1,
 				price : price,
 				sellerId : sellerId,
 				consumerId: consumerId
@@ -133,10 +134,9 @@
 
 		    if (existingProduct) {
 		        // If the product exists, update its quantity
-		        existingProduct.quantity += product.quantity;
+		        existingProduct.quantity += 1;
 		    } else {
 		        // If the product does not exist, add it to the cart with quantity 1
-		
 		        cart.push(product);
 		    }
 

@@ -27,6 +27,10 @@ public class ReportedProductsShowController extends HttpServlet {
 		ReportedProductModel reportedProductModel = new ReportedProductModel();
 		
 		HttpSession session = request.getSession(false);
+		
+		if (session == null) {
+			response.sendRedirect("login.jsp");
+		}
 
 		String role = (String) session.getAttribute("role");
 		String portId = (String) session.getAttribute("port_id");

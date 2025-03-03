@@ -8,17 +8,17 @@
 			</button>
 		</div>
 		<div class="p-2 side-nav-item">
-			<a href="ProductsShowController" class="text-white btn">Dashboard</a>
+			<a href="ProductsShowController" class="text-white btn"><i class="fa-solid fa-gauge"></i> Dashboard</a>
 		</div>
 		<div class="p-2 side-nav-item">
-			<a href="OrdersShowController" class="text-white btn">Orders</a>
+			<a href="OrdersShowController" class="text-white btn"><i class="fa-solid fa-bag-shopping"></i> Orders</a>
 		</div>
 		<div class="p-2 side-nav-item">
-			<a href="ReportedProductsShowController" class="text-white btn">Reported
+			<a href="ReportedProductsShowController" class="text-white btn"><i class="fa-solid fa-triangle-exclamation"></i> Reported
 				Products</a>
 		</div>
 		<div class="p-2 side-nav-item">
-			<a href="consumer_cart.jsp" class="text-white btn">Cart</a>
+			<a href="consumer_cart.jsp" class="text-white btn"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
 		</div>
 	</div>
 </div>

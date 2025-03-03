@@ -19,6 +19,6 @@
     <td><span class="badge bg-warning">${status}</span></td>
     <td>
         <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                data-bs-target="#updateStatusModal" data-bs-orderid="${order_id}">Track Order</button>
+                data-bs-target="#updateStatusModal" data-bs-orderid="${order_id}"><i class="fa-solid fa-truck"></i></button>
     </td>
 </tr>

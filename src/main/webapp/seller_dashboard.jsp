@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="modal" tagdir="/WEB-INF/tags/modal"%>
+<%@ taglib prefix="meta" tagdir="/WEB-INF/tags/meta"%>
 
 <!DOCTYPE html>
 <jsp lang="en">
@@ -101,11 +102,11 @@
 								<div class="card-body">
 									<h5 class="card-title text-muted mb-2">Total Sales</h5>
 									<%
-									double totalSales = request.getAttribute("totalsales") !=null ? (double) request.getAttribute("totalsales") : 0;
-									double totalOrders = request.getAttribute("totalorders") !=null ? (double) request.getAttribute("totalorders") : 0;
+									double totalSales = request.getAttribute("totalsales") != null ? (double) request.getAttribute("totalsales") : 0;
+									double totalOrders = request.getAttribute("totalorders") != null ? (double) request.getAttribute("totalorders") : 0;
 									%>
 									<h2 class="mb-0">
-										₹<%=totalSales %></h2>
+										₹<%=totalSales%></h2>
 									<p class="text-success mt-2 mb-0"></p>
 								</div>
 							</div>
@@ -127,18 +128,6 @@
 	<footer>
 		<!-- place footer here -->
 	</footer>
-	<!-- Bootstrap JavaScript Libraries -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-		crossorigin="anonymous"></script>
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-		integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-		crossorigin="anonymous"></script>
-
-	<!-- layout event handler script -->
-	<script src="./layout.js"></script>
+	<meta:meta-scripts/>
 </body>
 </html>

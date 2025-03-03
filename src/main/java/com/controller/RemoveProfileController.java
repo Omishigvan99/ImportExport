@@ -26,6 +26,7 @@ public class RemoveProfileController extends HttpServlet {
 		
 		if(session == null) {
             request.getRequestDispatcher("login.jsp").forward(request, response);
+            return;
 		}
 		
 		String role = (String) session.getAttribute("role");
@@ -33,6 +34,7 @@ public class RemoveProfileController extends HttpServlet {
 
 		if (role == null || portid == null) {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
+			return;
 		}
 
 		String password = request.getParameter("password");

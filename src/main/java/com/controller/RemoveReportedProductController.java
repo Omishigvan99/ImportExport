@@ -24,12 +24,14 @@ public class RemoveReportedProductController extends HttpServlet {
 		
 		if (session == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 		
 		String role = (String) session.getAttribute("role");
 		
 		if (role == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 		
 		int reportedProductId = Integer.parseInt( request.getParameter("report_id"));

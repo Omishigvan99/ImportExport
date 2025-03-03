@@ -19,7 +19,7 @@ public class ProductImplementor implements ProductProvider {
 		try {
 			callableStatement = DBConnection.getConnection().prepareCall("{call get_products(?, ?)}");
 			callableStatement.setInt(1, 1);
-			callableStatement.setInt(2, 10);
+			callableStatement.setInt(2, 99);
 
 			ResultSet resultSet = callableStatement.executeQuery();
 

@@ -24,6 +24,7 @@ public class RemoveOrderController extends HttpServlet {
 
 		if (session == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 
 		String role = (String) session.getAttribute("role");
@@ -31,6 +32,7 @@ public class RemoveOrderController extends HttpServlet {
 
 		if (role == null || portId == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 
 		int orderId = Integer.parseInt(request.getParameter("order_id"));

@@ -23,6 +23,7 @@ public class ChangePasswordController extends HttpServlet {
 		
 		if(session == null) {
 		    request.getRequestDispatcher("login.jsp").forward(request, response);
+		    return;
 		}
 		
 		String role = (String) session.getAttribute("role");
@@ -30,6 +31,7 @@ public class ChangePasswordController extends HttpServlet {
 		
 		if (role == null || portid == null) {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
+			return;
 		}
 		
 		String oldPassword = request.getParameter("old_password");

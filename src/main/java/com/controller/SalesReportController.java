@@ -23,6 +23,7 @@ public class SalesReportController extends HttpServlet {
 		
 		if (session == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		} else {
 			String sellerId = (String) session.getAttribute("port_id");
 			String reportType = request.getParameter("report_type");

@@ -23,6 +23,7 @@ public class ReportProductController extends HttpServlet {
 		
 		if (session == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 		
 		String role = (String) session.getAttribute("role");
@@ -30,6 +31,7 @@ public class ReportProductController extends HttpServlet {
 		
 		if (role == null || portId == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 		
 		int productId = Integer.parseInt(request.getParameter("product_id"));

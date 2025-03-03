@@ -26,6 +26,7 @@ public class UpdateProfileController extends HttpServlet {
 		
 		if (session == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 
 		String role = (String) session.getAttribute("role");
@@ -33,6 +34,7 @@ public class UpdateProfileController extends HttpServlet {
 
 		if (role == null || portId == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 
 		String location = request.getParameter("location");

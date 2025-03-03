@@ -195,7 +195,7 @@
 								</div>
 								<div class="modal-body">
 									<form action="ReportProductController" method="get">
-										<input id="product_id" type="text" name="product_id"
+										<input id="product_id" type="hidden" name="product_id"
 											value="">
 										<div class="mb-3">
 											<label class="form-label">Issue type</label> <select
@@ -220,6 +220,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 	</main>
 	<footer>
 		<!-- place footer here -->

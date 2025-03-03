@@ -18,29 +18,30 @@ import com.model.OrderModel;
 public class OrderStatusController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		HttpSession session = request.getSession(false);
-		
+
 		if (session == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
-		
+
 		String role = (String) session.getAttribute("role");
-		
+
 		if (role == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
-		
+
 		String status = request.getParameter("status");
 		int orderId = Integer.parseInt(request.getParameter("order_id"));
-		
+
 		if (role.equals("seller")) {
-			
+
 			OrderModel orderModel = new OrderModel();
-			
+
 			if (status.equals("shipped")) {
 				orderModel.setOrderShipped(true);
 				orderModel.setOrderId(orderId);
@@ -57,8 +58,8 @@ public class OrderStatusController extends HttpServlet {
 				orderModel.updateDelivered(orderModel);
 				response.sendRedirect("OrdersShowController");
 			}
-		}	
-		
+		}
+
 	}
 
 }

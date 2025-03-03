@@ -15,26 +15,27 @@ import com.model.ProductModel;
 public class ProductAddController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name= request.getParameter("pname");
-		double price= Double.parseDouble(request.getParameter("pprice"));
-		int quantity= Integer.parseInt(request.getParameter("pquantity"));
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String name = request.getParameter("pname");
+		double price = Double.parseDouble(request.getParameter("pprice"));
+		int quantity = Integer.parseInt(request.getParameter("pquantity"));
+
 		HttpSession session = request.getSession();
-		
+
 		if (session == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
-		
+
 		String role = (String) session.getAttribute("role");
 		String portId = (String) session.getAttribute("port_id");
-		
-		
+
 		if (role == null || portId == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
-		
-		
+
 		if (role.equals("seller")) {
 			ProductModel product = new ProductModel();
 			product.setProductName(name);

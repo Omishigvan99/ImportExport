@@ -8,7 +8,7 @@ import com.utils.DBConfig;
 
 public class DBConnection {
 	static Connection connection = null;
-	public static Connection getConnection() {
+	public static Connection getConnection(){
 		try {
 			Class.forName(DBConfig.Driver);
 		} catch (ClassNotFoundException e) {

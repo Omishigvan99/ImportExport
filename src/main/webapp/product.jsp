@@ -48,11 +48,6 @@
 				class="container-fluid flex-grow-1 mb-2 p-2 col-10 col-lg-9 overflow-auto">
 				<div class="container mt-5">
 					<div class="row row-cols-1 row-cols-md-2 g-4">
-						<!-- Product Image -->
-						<div class="col-md-6 text-center">
-							<img src="https://placehold.co/600x400/png"
-								class="img-fluid rounded shadow" alt="Product Image" />
-						</div>
 
 						<!-- Product Details -->
 						<div class="col-md-6">
@@ -65,15 +60,15 @@
 
 							<!-- Quantity Selector -->
 							<div class="d-flex align-items-center my-3">
-								<% 
-									int quantity = product.getProductQuantity();
-									String message = quantity > 0 ? "In Stock : "+quantity : "Out of Stock";
+								<%
+								int quantity = product.getProductQuantity();
+								String message = quantity > 0 ? "In Stock : " + quantity : "Out of Stock";
 								%>
 								<span class="me-2"><%=message%></span>
 							</div>
 
 							<!-- Add to Cart Button -->
-							<button class="btn btn-primary w-100" onclick="addToCart()"
+							<button class="btn btn-primary w-100" onclick="addToCart(event)"
 								data-bs-productid="<%=product.getProductId()%>"
 								data-bs-productname="<%=product.getProductName()%>"
 								data-bs-quantity="<%=product.getProductQuantity()%>"
@@ -105,46 +100,47 @@
 	<script src="./layout.js"></script>
 
 	<script>
-	function getCart() {
-	    let cart = localStorage.getItem("cart");
-	    return cart ? JSON.parse(cart) : [];  // Ensure it returns an array instead of null
-	}
-		
-		function addToCart() {
-			let button = event.target;
-			let productId = Number(button.getAttribute('data-bs-productid'));
-			let productName = button.getAttribute('data-bs-productname');
-			let price = Number(button.getAttribute('data-bs-price'));
-			let sellerId = button.getAttribute('data-bs-sellerid');
-			let consumerId = button.getAttribute('data-bs-consumerid');
-
-			let product = {
-				productId : productId,
-				productName : productName,
-				quantity : 1,
-				price : price,
-				sellerId : sellerId,
-				consumerId: consumerId
-			};
-			
-		    let cart = getCart();
-
-		    // Check if the product already exists in the cart
-		    const existingProduct = cart.find(item => item.id === product.id);
-
-		    if (existingProduct) {
-		        // If the product exists, update its quantity
-		        existingProduct.quantity += 1;
-		    } else {
-		        // If the product does not exist, add it to the cart with quantity 1
-		        cart.push(product);
-		    }
-
-		    // Save the updated cart to local storage
-		    localStorage.setItem("cart", JSON.stringify(cart));
-
-
-		}
+	    function getCart() {
+	        let cart = localStorage.getItem("cart");
+	        return cart ? JSON.parse(cart) : []; // Ensure it returns an array instead of null
+	    }
+	
+	    function addToCart(event) {
+			console.log(event);
+	        let button = event.target;
+	        let productId = Number(button.getAttribute('data-bs-productid'));
+	        let productName = button.getAttribute('data-bs-productname');
+	        let price = Number(button.getAttribute('data-bs-price'));
+	        let sellerId = button.getAttribute('data-bs-sellerid');
+	        let consumerId = button.getAttribute('data-bs-consumerid');
+	
+	        let cart = getCart();
+	
+	        // Check if the product already exists in the cart
+	        let existingProductIndex = cart.findIndex(item => item.productId === productId);
+	
+	        if (existingProductIndex !== -1) {
+	            // If the product exists, update its quantity
+	            cart[existingProductIndex].quantity += 1;
+	        } else {
+	            // If the product does not exist, add it to the cart
+	            cart.push({
+	                productId: productId,
+	                productName: productName,
+	                quantity: 1,
+	                price: price,
+	                sellerId: sellerId,
+	                consumerId: consumerId
+	            });
+	        }
+	
+	        // Save the updated cart to local storage
+	        localStorage.setItem("cart", JSON.stringify(cart));
+	        
+	        // Move to cart page
+	        window.location.href = "consumer_cart.jsp";
+	        
+	    }
 	</script>
 </body>
 </html>

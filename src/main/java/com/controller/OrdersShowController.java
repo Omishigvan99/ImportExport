@@ -22,9 +22,10 @@ public class OrdersShowController extends HttpServlet {
 		OrderModel orderModel = new OrderModel();
 
 		HttpSession session = request.getSession(false);
-		
+
 		if (session == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 
 		String role = (String) session.getAttribute("role");
@@ -32,6 +33,7 @@ public class OrdersShowController extends HttpServlet {
 
 		if (role == null || portId == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 
 		if (role.equals("consumer")) {

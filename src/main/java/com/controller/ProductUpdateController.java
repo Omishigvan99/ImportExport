@@ -25,6 +25,7 @@ public class ProductUpdateController extends HttpServlet {
 
 		if (session == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 
 		String role = (String) session.getAttribute("role");
@@ -32,6 +33,7 @@ public class ProductUpdateController extends HttpServlet {
 
 		if (role == null || portId == null) {
 			response.sendRedirect("login.jsp");
+			return;
 		}
 
 		// get product details from update_product.jsp

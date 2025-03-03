@@ -1,6 +1,5 @@
 package com.controller;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -44,8 +43,7 @@ public class PlaceOrderController extends HttpServlet {
 			order.setProductId(productId);
 			order.placeOrder(order);
 			
-			RequestDispatcher rs= request.getRequestDispatcher("OrdersShowController");
-			rs.forward(request, response);
+			response.sendRedirect("OrdersShowController");
 		}
 	}
 

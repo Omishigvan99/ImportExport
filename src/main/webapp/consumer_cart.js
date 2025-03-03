@@ -26,13 +26,13 @@ function displayCart() {
                                             <p class="card-text">Price: ₹${item.price
 					}</p>
                                             <div class="d-flex align-items-center">
-                                                <button class="btn btn-danger btn-sm me-2" onclick="updateQuantity(${item.id
+                                                <button class="btn btn-danger btn-sm me-2" onclick="updateQuantity(${item.productId
 					}, ${item.quantity - 1})">
                                                     <i class="bi bi-dash"></i>
                                                 </button>
                                                 <span class="mx-2">${item.quantity
 					}</span>
-                                                <button class="btn btn-primary btn-sm" onclick="updateQuantity(${item.id
+                                                <button class="btn btn-primary btn-sm" onclick="updateQuantity(${item.productId
 					}, ${item.quantity + 1})">
                                                     <i class="bi bi-plus"></i>
                                                 </button>
@@ -40,13 +40,13 @@ function displayCart() {
                                             <p class="card-text mt-2">Total: ₹${(
 						item.price * item.quantity
 					).toFixed(2)}</p>
-                                            <button class="btn btn-danger btn-sm" onclick="removeFromCart(${item.id
+                                            <button class="btn btn-danger btn-sm" onclick="removeFromCart(${item.productId
 					})">
                                                 <i class="bi bi-trash"></i>
                                                 Remove
                                             </button>
 											
-											<button class="btn btn-primary btn-sm" onclick="placeOrder(${item.id})"><i class="bi bi-cart-plus"></i> Place Order</button>
+											<button class="btn btn-primary btn-sm" onclick="placeOrder(${item.productId})"><i class="bi bi-cart-plus"></i> Place Order</button>
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +70,8 @@ function updateQuantity(id, newQuantity) {
 
 	//get cart from local storage
 	let cart = JSON.parse(localStorage.getItem("cart")) || [];
-	const item = cart.find((item) => item.id === id);
+	const item = cart.find((item) => item.productId === id);
+	console.log(item);
 	if (item) {
 		if (newQuantity < 1) {
 			newQuantity = 1; // Ensure quantity doesn't go below 1
@@ -111,11 +112,10 @@ function removeFromCart(id) {
 
 	//get cart from local storage
 	let cart = JSON.parse(localStorage.getItem("cart")) || [];
-	cart = cart.filter((item) => item.id !== id);
+	cart = cart.filter((item) => item.productId !== id);
 	
 	//save to local storage
 	localStorage.setItem("cart", JSON.stringify(cart));
-	
 	
 	displayCart(); // Refresh the cart display
 }
@@ -125,12 +125,12 @@ function placeOrder(id) {
 	//get cart from local storage
 	let cart = JSON.parse(localStorage.getItem("cart")) || [];
 	
-	const item = cart.find((item) => item.id === id);
+	const item = cart.find((item) => item.productId === id);
 	if (item) {
 		window.location.href=`PlaceOrderController?product_id=${item.productId}&quantity=${item.quantity}`;
 		
 		// remove item from cart
-		cart = cart.filter((item) => item.id !== id);
+		cart = cart.filter((item) => item.productId !== id);
 		
 		//save to local storage
 		localStorage.setItem("cart", JSON.stringify(cart));

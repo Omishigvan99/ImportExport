@@ -103,6 +103,9 @@
 
 					<!-- Edit Product Modal -->
 					<modal:edit_product />
+					
+					<!-- Confirm Modal -->
+					<modal:confirm_modal/>
 				</div>
 			</div>
 		</div>

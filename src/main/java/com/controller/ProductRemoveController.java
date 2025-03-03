@@ -16,7 +16,7 @@ public class ProductRemoveController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// get product id from seller_product_management.jsp
-		int productId = Integer.parseInt(request.getParameter("productId"));
+		int productId = Integer.parseInt(request.getParameter("product_id"));
 
 		HttpSession session = request.getSession();
 		

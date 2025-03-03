@@ -18,9 +18,13 @@
 			data-bs-productid="${product_id}" data-bs-quantity="${quantity}"
 			data-bs-price="${price}">
 			<i class="fa-solid fa-pen-to-square"></i>
-		</button> <a class="btn btn-sm btn-danger"
-		href="ProductRemoveController?productId=${product_id}"> <i
-			class="fa-solid fa-trash"></i>
-	</a>
+		</button>
+		<button class="btn btn-sm btn-danger"
+			data-bs-productid="${product_id}" data-bs-toggle="modal"
+			data-bs-target="#confirmModal"
+			data-bs-message="Are you sure you want to delete this?"
+			data-bs-callback="deleteSellerProduct">
+			<i class="fa-regular fa-trash-can"></i>
+		</button>
 	</td>
 </tr>

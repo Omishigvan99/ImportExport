@@ -58,13 +58,13 @@
 							<h4 class="text-success">
 								$<%=product.getProductPrice()%></h4>
 
-							<!-- Quantity Selector -->
 							<div class="d-flex align-items-center my-3">
 								<%
 								int quantity = product.getProductQuantity();
 								String message = quantity > 0 ? "In Stock : " + quantity : "Out of Stock";
 								%>
 								<span class="me-2"><%=message%></span>
+								<span class="text-muted">Seller: <%=product.getSellerId()%></span>
 							</div>
 
 							<!-- Add to Cart Button -->

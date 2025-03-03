@@ -172,8 +172,7 @@
 											customer_port_id="<%=order.getConsumerId()%>"
 											order_id="<%=order.getOrderId()%>"
 											price="<%=order.getPrice()%>"
-											product_id="<%=order.getProductId()%>"
-											></components:consumer_order_row>
+											product_id="<%=order.getProductId()%>"></components:consumer_order_row>
 										<%
 										}
 										}
@@ -185,6 +184,10 @@
 					</div>
 					<!-- Update Status Modal -->
 					<modal:order-status />
+
+					<!-- Confirm Modal-->
+					<modal:confirm_modal />
+					
 					<!-- Report Order Modal -->
 					<div class="modal fade" id="reportProductModal" tabindex="-1">
 						<div class="modal-dialog">
@@ -267,12 +270,12 @@
 				}
 			}
 		}
-		
+
 		// get report product modal
 		let reportProductModal = document.getElementById('reportProductModal');
-		
+
 		// add event listener to show modal
-		
+
 		reportProductModal.addEventListener('show.bs.modal', function(event) {
 			let button = event.relatedTarget;
 			let productId = button.getAttribute('data-bs-productid');

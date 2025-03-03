@@ -23,10 +23,19 @@
 	<td>
 		<button class="btn btn-sm btn-primary" data-bs-toggle="modal"
 			data-bs-target="#updateStatusModal"
-			onclick="updateProgress('<%=status%>')"><i class="fa-solid fa-magnifying-glass-location"></i></button>
-			<button class="btn btn-sm btn-warning"  data-bs-toggle="modal" data-bs-target="#reportProductModal" data-bs-productid="${product_id}"><i class="fa-regular fa-flag"></i></button>
-			 <a
-		class="btn btn-sm btn-danger" href="RemoveOrderController?order_id=${order_id}"><i class="fa-regular fa-trash-can"></i>
-	</a>
+			onclick="updateProgress('<%=status%>')">
+			<i class="fa-solid fa-magnifying-glass-location"></i>
+		</button>
+		<button class="btn btn-sm btn-warning" data-bs-toggle="modal"
+			data-bs-target="#reportProductModal"
+			data-bs-productid="${product_id}">
+			<i class="fa-regular fa-flag"></i>
+		</button>
+		<button class="btn btn-sm btn-danger" data-bs-orderid="${order_id}"
+			data-bs-toggle="modal" data-bs-target="#confirmModal"
+			data-bs-message="Are you sure you want to delete this order?"
+			data-bs-callback="deleteConsumerOrder">
+			<i class="fa-regular fa-trash-can"></i>
+		</button>
 	</td>
 </tr>

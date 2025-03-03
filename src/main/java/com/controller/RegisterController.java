@@ -31,7 +31,7 @@ public class RegisterController extends HttpServlet {
 					response.sendRedirect("login.jsp");
 				} else {
 					// show error message
-					response.sendRedirect("register.jsp");
+					response.sendRedirect("register.jsp?error=Falied to register. Try again");
 				}
 				
 				
@@ -47,16 +47,16 @@ public class RegisterController extends HttpServlet {
 					response.sendRedirect("login.jsp");
 				} else {
 					// show error message
-					response.sendRedirect("register.jsp");
+					response.sendRedirect("register.jsp?error=Falied to register. Try again");
 				}
 			}
 			else {
 				// show error message
-				response.sendRedirect("register.jsp");
+				response.sendRedirect("register.jsp?error=Invalid role selected");
 			}
 		} else {
 			// show error message
-			response.sendRedirect("register.jsp");
+			response.sendRedirect("register.jsp?error= Passwords do not match");
 		}
 	}
 }

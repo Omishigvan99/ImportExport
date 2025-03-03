@@ -40,6 +40,7 @@ public class LoginController extends HttpServlet {
 
 				request.getRequestDispatcher("seller_dashboard.jsp").forward(request, response);
 			} else {
+				request.setAttribute("errorMessage", "Invalid Port ID or Password");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 		} else if (role.equals("consumer")) {
@@ -52,12 +53,14 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("port_id", portid);
 				session.setAttribute("role", role);
 				session.setAttribute("location", consumer.getLocation());
-				
+
 				request.getRequestDispatcher("ProductsShowController").forward(request, response);
 			} else {
+				request.setAttribute("errorMessage", "Invalid Port ID or Password");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 		} else {
+			request.setAttribute("errorMessage", "Something went wrong please try again");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}

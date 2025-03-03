@@ -54,6 +54,19 @@ body::before {
 	<div class="login-container">
 		<h3>Welcome Back!!</h3>
 		<p>Enter your credentials to access your account.</p>
+
+		<!-- Display Login Error Message -->
+		<%
+		String errorMessage = (String) request.getAttribute("errorMessage");
+		if (errorMessage != null) {
+		%>
+		<div class="alert alert-danger" role="alert">
+			<%=errorMessage%>
+		</div>
+		<%
+		}
+		%>
+
 		<form id="loginForm" method="post" action="LoginController">
 			<div class="form-floating mb-3">
 				<input type="text" class="form-control" id="portId" name="port_id"
@@ -61,24 +74,23 @@ body::before {
 					Port ID</label>
 			</div>
 			<div class="form-floating mb-3">
-				<input type="password" class="form-control" id="password" name="password"
-					placeholder="Enter Password" required /> <label for="password">Enter
-					Password</label>
+				<input type="password" class="form-control" id="password"
+					name="password" placeholder="Enter Password" required /> <label
+					for="password">Enter Password</label>
 			</div>
 			<div class="form-floating mb-3">
 				<select class="form-select" id="role" name="role">
-					<option selected value="consumer">consumer</option>
-					<option value="seller">seller</option>
+					<option selected value="consumer">Consumer</option>
+					<option value="seller">Seller</option>
 				</select> <label for="role">Select Role</label>
 			</div>
 			<button type="submit" id="redirectLink" class="btn btn-primary w-100">Log
 				In</button>
-			<a href="register.jsp" class="link">Not a user? register here</a>
+			<a href="register.jsp" class="link">Not a user? Register here</a>
 		</form>
 	</div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
